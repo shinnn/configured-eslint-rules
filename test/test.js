@@ -4,8 +4,6 @@ const test = require('tape');
 const configuredESLintRules = require('..');
 
 test('configuredESLintRules()', t => {
-  t.plan(8);
-
   t.strictEqual(configuredESLintRules.name, 'configuredESLintRules', 'should have a function name.');
 
   t.deepEqual(
@@ -49,4 +47,12 @@ test('configuredESLintRules()', t => {
     /TypeError.*1 is not an object/,
     'should throw a type error when the second argument is not an object.'
   );
+
+  t.throws(
+    () => configuredESLintRules('test/test.js', {rules: {'eol-last': 3}}),
+    /^Error.*CLI:\n\tConfiguration for rule "eol-last" is invalid/,
+    'should throw an error when it takes an invalid ESLint config.'
+  );
+
+  t.end();
 });
