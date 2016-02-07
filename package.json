@@ -1,6 +1,6 @@
 {
   "name": "configured-eslint-rules",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Detect configured ESLint rules",
   "repository": "shinnn/configured-eslint-rules",
   "scripts": {
