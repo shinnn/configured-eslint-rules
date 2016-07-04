@@ -26,11 +26,11 @@
     "configured"
   ],
   "dependencies": {
-    "eslint": "^2.11.1"
+    "eslint": "^3.0.0"
   },
   "devDependencies": {
-    "@shinnn/eslint-config": "^2.3.0",
-    "istanbul": "^0.4.3",
-    "tape": "^4.5.1"
+    "@shinnn/eslint-config": "^2.4.0",
+    "istanbul": "^0.4.4",
+    "tape": "^4.6.0"
   }
 }

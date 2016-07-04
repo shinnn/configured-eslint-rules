@@ -8,9 +8,9 @@
 
 Detect configured [ESLint](http://eslint.org/) rules
 
-```js
+```javascript
 /*
-    ./eslintrc:
+    ./eslintrc.json:
 
     {
       "rules": {
@@ -50,9 +50,9 @@ It returns an array of the [ESLint rule](http://eslint.org/docs/rules/) names th
 
 The `filePath` argument will be directly passed to [`cli.getConfigForFile()`](http://eslint.org/docs/developer-guide/nodejs-api#getconfigforfile) and you can set a file path where this function retrives the rules, instead of CWD.
 
-```js
+```javascript
 /*
-    ./dir/.eslintrc:
+    ./dir/.eslintrc.json:
 
     {
       "rules": {
@@ -61,16 +61,15 @@ The `filePath` argument will be directly passed to [`cli.getConfigForFile()`](ht
     }
 */
 
-configuredEslintRules('index.js'); //=> []
-configuredEslintRules('dir/index.js');  //=> []
+configuredEslintRules('dir/index.js');  //=> ['semi']
+configuredEslintRules('no_config_dir/index.js'); // throws "no configuration" error
 ```
 
 The `options` argument will be directly passed to the [`CLIEngine`](http://eslint.org/docs/developer-guide/nodejs-api#cliengine) constructor and you can set additional options.
 
-
-```js
+```javascript
 /*
-    ./eslintrc:
+    ./eslintrc.yml:
 
     rules:
       eqeqeq: 1

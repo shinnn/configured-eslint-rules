@@ -7,12 +7,6 @@ test('configuredESLintRules()', t => {
   t.strictEqual(configuredESLintRules.name, 'configuredESLintRules', 'should have a function name.');
 
   t.deepEqual(
-    configuredESLintRules(),
-    [],
-    'should return an empty array when no rules are configured.'
-  );
-
-  t.deepEqual(
     configuredESLintRules('test/test.js'),
     ['eol-last'],
     'should retrieve configured rules for a given file.'
@@ -27,7 +21,13 @@ test('configuredESLintRules()', t => {
   t.deepEqual(
     configuredESLintRules('test/test.js', {useEslintrc: false}),
     [],
-    'should use both file name and CLIEngine option object.'
+    'should return an empty array when `useEslintrc` option is enabled and no rules are specified.'
+  );
+
+  t.throws(
+    () => configuredESLintRules(),
+    /^Error.*No ESLint configuration found\./,
+    'should throw an error when it cannot find any configuration.'
   );
 
   t.throws(
