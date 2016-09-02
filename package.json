@@ -5,8 +5,8 @@
   "repository": "shinnn/configured-eslint-rules",
   "scripts": {
     "pretest": "eslint --fix --config @shinnn index.js test/test.js",
-    "test": "node --strong_mode test/test.js",
-    "coverage": "node --strong_mode node_modules/.bin/istanbul cover test/test.js"
+    "test": "node test/test.js",
+    "coverage": "node cover test/test.js"
   },
   "license": "MIT",
   "files": [
