@@ -4,8 +4,6 @@ const test = require('tape');
 const configuredESLintRules = require('..');
 
 test('configuredESLintRules()', t => {
-  t.strictEqual(configuredESLintRules.name, 'configuredESLintRules', 'should have a function name.');
-
   t.deepEqual(
     configuredESLintRules('test/test.js'),
     ['eol-last'],

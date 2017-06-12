@@ -4,7 +4,7 @@
   "description": "Detect configured ESLint rules",
   "repository": "shinnn/configured-eslint-rules",
   "scripts": {
-    "pretest": "eslint --fix --config @shinnn index.js test/test.js",
+    "pretest": "eslint --config=@shinnn/node --format=codeframe index.js test/test.js",
     "test": "node test/test.js",
     "coverage": "node cover test/test.js"
   },
@@ -26,11 +26,11 @@
     "configured"
   ],
   "dependencies": {
-    "eslint": "^3.0.0"
+    "eslint": "^4.0.0"
   },
   "devDependencies": {
-    "@shinnn/eslint-config": "^3.0.2",
+    "@shinnn/eslint-config-node": "^3.0.0",
     "istanbul": "^0.4.5",
-    "tape": "^4.6.0"
+    "tape": "^4.6.3"
   }
 }
