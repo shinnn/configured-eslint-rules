@@ -12,7 +12,7 @@ module.exports = function configuredESLintRules(...args) {
 	}
 
 	if (argLen === 1 && !isPlainObject(args[0])) {
-		throw new TypeError(`Expected the first argument to be a string or Object, but got ${
+		throw new TypeError(`Expected an ESLint's CLIEngine options object (<Object>), but got ${
 			inspectWithKind(args[0])
 		}.`);
 	}

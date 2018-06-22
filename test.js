@@ -47,8 +47,8 @@ rules:
 
 	t.throws(
 		() => configuredESLintRules(true),
-		/^TypeError.*Expected the first argument to be a string or Object, but got true \(boolean\)\./,
-		'should throw a type error when the first argument is neither a string nor an object.'
+		/^TypeError.*Expected an ESLint's CLIEngine options object \(<Object>\), but got true \(boolean\)\./,
+		'should throw a type error when it takes a non-object argument.'
 	);
 
 	t.throws(
