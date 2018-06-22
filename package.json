@@ -26,7 +26,8 @@
     "configured"
   ],
   "dependencies": {
-    "eslint": "^4.0.0"
+    "eslint": "^4.0.0",
+    "inspect-with-kind": "^1.0.4"
   },
   "devDependencies": {
     "@shinnn/eslint-config-node": "^3.0.0",

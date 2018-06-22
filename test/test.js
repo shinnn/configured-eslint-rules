@@ -30,13 +30,13 @@ test('configuredESLintRules()', t => {
 
   t.throws(
     () => configuredESLintRules(true),
-    /TypeError.*true is not a string or an object/,
+    /^TypeError.*Expected the first argument to be a string or Object, but got true \(boolean\)\./,
     'should throw a type error when the first argument is neither a string nor an object.'
   );
 
   t.throws(
     () => configuredESLintRules(null, {}),
-    /TypeError.*null is not a string or an object/,
+    /^TypeError.*Expected a file path \(string\), but got a non-string value null\./,
     'should throw a type error when the second argument is truthy but the first isn\'t.'
   );
 
@@ -50,6 +50,12 @@ test('configuredESLintRules()', t => {
     () => configuredESLintRules('test/test.js', {rules: {'eol-last': 3}}),
     /^Error.*CLI:\n\tConfiguration for rule "eol-last" is invalid/,
     'should throw an error when it takes an invalid ESLint config.'
+  );
+
+  t.throws(
+    () => configuredESLintRules('_', {}, 1),
+    /^RangeError.*Expected 0, 1 or 2 arguments \(\[<string>]\[, <Object>]\), but got 3 arguments\./,
+    'should throw an error when it takes too many arguments.'
   );
 
   t.end();
