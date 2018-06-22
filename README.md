@@ -38,32 +38,14 @@ npm install configured-eslint-rules
 const configuredEslintRules = require('configured-eslint-rules');
 ```
 
-### configuredEslintRules([*filePath*][, *options*])
+### configuredEslintRules([*options*])
 
-*filePath*: `string`  
 *options*: `Object`  
 Return: `Array<string>`
 
-It returns an array of the [ESLint rule](http://eslint.org/docs/rules/) names that have [rule configurations](http://eslint.org/docs/user-guide/configuring#configuring-rules) on a current working directory.
+It returns an array of the [ESLint rule](https://eslint.org/docs/rules/) names that have [rule configurations](https://eslint.org/docs/user-guide/configuring#configuring-rules) on a current working directory.
 
-The `filePath` argument will be directly passed to [`cli.getConfigForFile()`](https://eslint.org/docs/developer-guide/nodejs-api#clienginegetconfigforfile) and you can set a file path where this function retrives the rules, instead of CWD.
-
-```javascript
-/*
-    ./dir/.eslintrc.json:
-
-    {
-      "rules": {
-        "semi": [2, "always"]
-      }
-    }
-*/
-
-configuredEslintRules('dir/index.js');  //=> ['semi']
-configuredEslintRules('no_config_dir/index.js'); // throws "no configuration" error
-```
-
-The `options` argument will be directly passed to the [`CLIEngine`](http://eslint.org/docs/developer-guide/nodejs-api#cliengine) constructor and you can set additional options.
+The `options` argument will be directly passed to the [`CLIEngine`](https://eslint.org/docs/developer-guide/nodejs-api#cliengine) constructor.
 
 ```javascript
 /*
@@ -72,6 +54,8 @@ The `options` argument will be directly passed to the [`CLIEngine`](http://eslin
     rules:
       eqeqeq: 1
 */
+
+configuredEslintRules(); //=> ['eqeqeq']
 
 configuredEslintRules({
   rules: {curly: 0},
