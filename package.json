@@ -1,37 +1,37 @@
 {
-  "name": "configured-eslint-rules",
-  "version": "4.0.0",
-  "description": "Detect configured ESLint rules",
-  "repository": "shinnn/configured-eslint-rules",
-  "scripts": {
-    "pretest": "eslint --config=@shinnn/node --format=codeframe index.js test/test.js",
-    "test": "node test/test.js",
-    "coverage": "node cover test/test.js"
-  },
-  "license": "MIT",
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "eslint",
-    "setting",
-    "config",
-    "configuration",
-    "array",
-    "list",
-    "rule",
-    "rules",
-    "check",
-    "detect",
-    "configured"
-  ],
-  "dependencies": {
-    "eslint": "^4.0.0",
-    "inspect-with-kind": "^1.0.4"
-  },
-  "devDependencies": {
-    "@shinnn/eslint-config-node": "^3.0.0",
-    "istanbul": "^0.4.5",
-    "tape": "^4.6.3"
-  }
+	"name": "configured-eslint-rules",
+	"version": "5.0.0-0",
+	"description": "Detect configured ESLint rules",
+	"repository": "shinnn/configured-eslint-rules",
+	"scripts": {
+		"pretest": "eslint --config=@shinnn/node --format=codeframe index.js test/test.js",
+		"test": "node test/test.js",
+		"coverage": "istanbul cover test/test.js"
+	},
+	"license": "MIT",
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"eslint",
+		"setting",
+		"config",
+		"configuration",
+		"array",
+		"list",
+		"rule",
+		"rules",
+		"check",
+		"detect",
+		"configured"
+	],
+	"dependencies": {
+		"eslint": "^4.0.0",
+		"inspect-with-kind": "^1.0.4"
+	},
+	"devDependencies": {
+		"@shinnn/eslint-config-node": "^3.0.0",
+		"istanbul": "^0.4.5",
+		"tape": "^4.6.3"
+	}
 }
