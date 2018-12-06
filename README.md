@@ -1,7 +1,7 @@
 # configured-eslint-rules
 
 [![npm version](https://img.shields.io/npm/v/configured-eslint-rules.svg)](https://www.npmjs.com/package/configured-eslint-rules)
-[![Build Status](https://travis-ci.org/shinnn/configured-eslint-rules.svg?branch=master)](https://travis-ci.org/shinnn/configured-eslint-rules)
+[![Build Status](https://travis-ci.com/shinnn/configured-eslint-rules.svg?branch=master)](https://travis-ci.com/shinnn/configured-eslint-rules)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/configured-eslint-rules.svg)](https://coveralls.io/github/shinnn/configured-eslint-rules)
 
 Detect configured [ESLint](https://eslint.org/) rules
@@ -26,7 +26,7 @@ const configured = configuredESLintRules(); //=> ['no-alert', 'no-array-construc
 
 ## Installation
 
-[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/getting-started/what-is-npm).
+[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/about-npm/).
 
 ```
 npm install configured-eslint-rules
