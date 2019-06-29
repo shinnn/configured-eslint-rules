@@ -21,7 +21,8 @@ Detect configured [ESLint](https://eslint.org/) rules
 */
 
 const configuredESLintRules = require('configured-eslint-rules');
-const configured = configuredESLintRules(); //=> ['no-alert', 'no-array-constructor', 'no-bitwise', 'linebreak-style']
+const configured = configuredESLintRules();
+//=> ['no-alert', 'no-array-constructor', 'no-bitwise', 'linebreak-style']
 ```
 
 ## Installation
@@ -40,12 +41,12 @@ const configuredEslintRules = require('configured-eslint-rules');
 
 ### configuredEslintRules([*options*])
 
-*options*: `Object`  
+*options*: `Object | CLIEngine`  
 Return: `string[]`
 
 It returns an `Array` of the [ESLint rule](https://eslint.org/docs/rules/) names that have [rule configurations](https://eslint.org/docs/user-guide/configuring#configuring-rules) on a current working directory.
 
-The `options` argument will be directly passed to the [`CLIEngine`](https://eslint.org/docs/developer-guide/nodejs-api#cliengine) constructor.
+The optional parameter accepts either a plain `Object` to set [`CLIEngine`](https://eslint.org/docs/developer-guide/nodejs-api#cliengine) options or an already instantiated `CLIEngine`, and affects the result.
 
 ```javascript
 /*
@@ -57,10 +58,7 @@ The `options` argument will be directly passed to the [`CLIEngine`](https://esli
 
 configuredEslintRules(); //=> ['eqeqeq']
 
-configuredEslintRules({
-  rules: {curly: 0},
-  useEslintrc: false
-}); //=> ['curly']
+configuredEslintRules({rules: {curly: 0}}); //=> ['eqeqeq', 'curly']
 ```
 
 ## License

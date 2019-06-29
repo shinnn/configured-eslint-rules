@@ -6,16 +6,24 @@ const isPlainObject = require('lodash/isPlainObject');
 
 module.exports = function configuredESLintRules(...args) {
 	const argLen = args.length;
+	const [options] = args;
+	const isCLIEngine = options instanceof CLIEngine;
 
-	if (argLen > 1) {
-		throw new RangeError(`Expected 0 or 1 argument ([<Object>]), but got ${argLen} arguments.`);
+	if (argLen === 1) {
+		if (!isPlainObject(options) && !isCLIEngine) {
+			const error = new TypeError(`Expected an ESLint's CLIEngine instance or a plain object to set CLIEngine options, but got ${
+				inspectWithKind(options)
+			}.`);
+
+			error.code = 'ERR_INVALID_ARG_TYPE';
+			throw error;
+		}
+	} else if (argLen !== 0) {
+		const error = new RangeError(`Expected 0 or 1 argument (<Object>), but got ${argLen} arguments.`);
+
+		error.code = 'ERR_TOO_MANY_ARGS';
+		throw error;
 	}
 
-	if (argLen === 1 && !isPlainObject(args[0])) {
-		throw new TypeError(`Expected an ESLint's CLIEngine options object (<Object>), but got ${
-			inspectWithKind(args[0])
-		}.`);
-	}
-
-	return Object.keys((new CLIEngine(...args)).getConfigForFile('file.js').rules);
+	return Object.keys(isCLIEngine ? options : (new CLIEngine(...args)).getConfigForFile('file.js').rules);
 };

@@ -4,6 +4,7 @@ import {promises, unlinkSync} from 'fs';
 import {tmpdir} from 'os';
 
 import configuredESLintRules from '.';
+import eslint from 'eslint';
 import test from 'testit';
 
 const tmpDir = tmpdir();
@@ -21,12 +22,12 @@ rules:
 	assert.deepEqual(configuredESLintRules(), ['eol-last']);
 });
 
-test('use additional CLIEngine options as its last argument', () => {
+test('use a passed CLIEngine options object', () => {
 	assert.deepEqual(configuredESLintRules({rules: {'no-alert': 2}}), ['no-alert', 'eol-last']);
 });
 
-test('return an empty array when `useEslintrc` option is enabled and no rules are specified', () => {
-	assert.deepEqual(configuredESLintRules({useEslintrc: false}), []);
+test('use a passed CLIEngine', () => {
+	assert.deepEqual(configuredESLintRules(new eslint.CLIEngine({useEslintrc: false})), []);
 });
 
 test('should throw an error when it cannot find any configuration', () => {
@@ -36,16 +37,18 @@ test('should throw an error when it cannot find any configuration', () => {
 	assert.throws(() => configuredESLintRules(), {message: `No ESLint configuration found in ${root}.`});
 });
 
-test('throw a type error when it takes a non-object argument', () => {
+test('throw a type error when it takes an argument neither a CLIEngine nor a plain object', () => {
 	assert.throws(() => configuredESLintRules(true), {
 		name: 'TypeError',
-		message: 'Expected an ESLint\'s CLIEngine options object (<Object>), but got true (boolean).'
+		code: 'ERR_INVALID_ARG_TYPE',
+		message: 'Expected an ESLint\'s CLIEngine instance or a plain object to set CLIEngine options, but got true (boolean).'
 	});
 });
 
 test('throw an error when it takes too many arguments', () => {
 	assert.throws(() => configuredESLintRules({}, {}), {
 		name: 'RangeError',
-		message: 'Expected 0 or 1 argument ([<Object>]), but got 2 arguments.'
+		code: 'ERR_TOO_MANY_ARGS',
+		message: 'Expected 0 or 1 argument (<Object>), but got 2 arguments.'
 	});
 });
