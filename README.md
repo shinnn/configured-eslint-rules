@@ -1,7 +1,7 @@
 # configured-eslint-rules
 
 [![npm version](https://img.shields.io/npm/v/configured-eslint-rules.svg)](https://www.npmjs.com/package/configured-eslint-rules)
-[![Build Status](https://travis-ci.com/shinnn/configured-eslint-rules.svg?branch=master)](https://travis-ci.com/shinnn/configured-eslint-rules)
+[![GitHub Actions](https://action-badges.now.sh/shinnn/configured-eslint-rules)](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/shinnn/configured-eslint-rules)
 [![codecov](https://codecov.io/gh/shinnn/configured-eslint-rules/branch/master/graph/badge.svg)](https://codecov.io/gh/shinnn/configured-eslint-rules)
 
 Detect configured [ESLint](https://eslint.org/) rules
