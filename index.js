@@ -17,5 +17,5 @@ module.exports = function configuredESLintRules(...args) {
 		}.`);
 	}
 
-	return Object.keys((new CLIEngine(...args)).getConfigForFile().rules);
+	return Object.keys((new CLIEngine(...args)).getConfigForFile('file.js').rules);
 };

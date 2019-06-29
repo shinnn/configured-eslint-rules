@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/configured-eslint-rules.svg)](https://www.npmjs.com/package/configured-eslint-rules)
 [![Build Status](https://travis-ci.com/shinnn/configured-eslint-rules.svg?branch=master)](https://travis-ci.com/shinnn/configured-eslint-rules)
-[![Coverage Status](https://img.shields.io/coveralls/shinnn/configured-eslint-rules.svg)](https://coveralls.io/github/shinnn/configured-eslint-rules)
+[![codecov](https://codecov.io/gh/shinnn/configured-eslint-rules/branch/master/graph/badge.svg)](https://codecov.io/gh/shinnn/configured-eslint-rules)
 
 Detect configured [ESLint](https://eslint.org/) rules
 
@@ -41,9 +41,9 @@ const configuredEslintRules = require('configured-eslint-rules');
 ### configuredEslintRules([*options*])
 
 *options*: `Object`  
-Return: `Array<string>`
+Return: `string[]`
 
-It returns an array of the [ESLint rule](https://eslint.org/docs/rules/) names that have [rule configurations](https://eslint.org/docs/user-guide/configuring#configuring-rules) on a current working directory.
+It returns an `Array` of the [ESLint rule](https://eslint.org/docs/rules/) names that have [rule configurations](https://eslint.org/docs/user-guide/configuring#configuring-rules) on a current working directory.
 
 The `options` argument will be directly passed to the [`CLIEngine`](https://eslint.org/docs/developer-guide/nodejs-api#cliengine) constructor.
 
@@ -65,4 +65,4 @@ configuredEslintRules({
 
 ## License
 
-[ISC License](./LICENSE) © 2018 Shinnosuke Watanabe
+[ISC License](./LICENSE) © 2018 - 2019 Watanabe Shinnosuke
