@@ -19,11 +19,11 @@ module.exports = function configuredESLintRules(...args) {
 			throw error;
 		}
 	} else if (argLen !== 0) {
-		const error = new RangeError(`Expected 0 or 1 argument (<Object>), but got ${argLen} arguments.`);
+		const error = new RangeError(`Expected 0 or 1 argument (<Object|CLIEngine>), but got ${argLen} arguments.`);
 
 		error.code = 'ERR_TOO_MANY_ARGS';
 		throw error;
 	}
 
-	return Object.keys(isCLIEngine ? options : (new CLIEngine(...args)).getConfigForFile('file.js').rules);
+	return Object.keys((isCLIEngine ? options : new CLIEngine(...args)).getConfigForFile('file.js').rules);
 };

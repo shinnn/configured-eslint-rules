@@ -49,6 +49,6 @@ test('throw an error when it takes too many arguments', () => {
 	assert.throws(() => configuredESLintRules({}, {}), {
 		name: 'RangeError',
 		code: 'ERR_TOO_MANY_ARGS',
-		message: 'Expected 0 or 1 argument (<Object>), but got 2 arguments.'
+		message: 'Expected 0 or 1 argument (<Object|CLIEngine>), but got 2 arguments.'
 	});
 });
