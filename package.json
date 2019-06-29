@@ -1,6 +1,6 @@
 {
 	"name": "configured-eslint-rules",
-	"version": "5.0.1",
+	"version": "6.0.0-0",
 	"description": "Detect configured ESLint rules",
 	"author": "Watanabe Shinnosuke (https://github.com/shinnn)",
 	"repository": "shinnn/configured-eslint-rules",
